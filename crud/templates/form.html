@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Form</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Full Name</label><br>
+        <input type="text" name="fullname" required/><br><br>
+        <label>Email</label><br>
+        <input type="email" name="email" required/><br><br>
+        <label>Date Of Birth</label><br>
+        <input type="date" name="dob" required/><br><br>
+        <label>Gender</label><br>
+        <input type="radio" name="gender" value="Male" required/>Male<br>
+        <input type="radio" name="gender" value="Female" required/>Female<br>
+        <input type="radio" name="gender" value="Others" required/>Others<br><br>
+        <label>Course</label><br>
+        <select name="course" required>
+            <option value="">Select Course</option>
+            <option value="Djnago">Django</option>
+            <option value="Flutter">Flutter</option>
+            <option value="MERN">MERN</option>
+            <option value="Java">Java</option>
+        </select><br><br>
+        <input type="submit">
+    </form>
+    {% if success %}
+        <h3 style="color: green;">Register successfully</h3>
+        <h4>Entered Details</h4>
+        <p>Full Name: {{fullname}}</p>
+        <p>Email: {{email}}</p>
+        <p>Date Of Birth: {{dob}}</p>
+        <p>Gender: {{gender}}</p>
+        <p>Course: {{course}}</p>
+    {% endif %}
+</body>
+</html>

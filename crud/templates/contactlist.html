@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact List View</title>
+  </head>
+  <body>
+    <h1>Contact List</h1>
+
+    <table border="1">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+
+      {% for i in contacts %}
+      <tr>
+        <td>{{ i.id }}</td>
+        <td>{{ i.name }}</td>
+        <td>{{ i.email }}</td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="3">No contacts available</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
